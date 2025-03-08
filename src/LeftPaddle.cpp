@@ -1,10 +1,10 @@
-#include "Paddle.h"
+#include "LeftPaddle.h"
 #include <glm/gtc/matrix_transform.hpp>
 
 extern glm::vec2 ballPos;
-float paddleY{0.0f}; // Initialize at top of screen
+float leftPaddleY{0.0f}; // Initialize at top of screen
 
-Paddle::Paddle()
+LeftPaddle::LeftPaddle()
 {
     glm::mat4 model{1.0f};
     model = glm::translate(model, glm::vec3(5.0f, 0.0f, 0.0f));
@@ -14,26 +14,26 @@ Paddle::Paddle()
     m_shader.setMat4("model", model);
 }
 
-void Paddle::update()
+void LeftPaddle::update()
 {
     float moveSpeed = 5.0f;
 
     // Calculate new position
-    if (paddleY > ballPos.y)
-        paddleY -= moveSpeed;
+    if (leftPaddleY > ballPos.y)
+        leftPaddleY -= moveSpeed;
 
-    else if (paddleY < ballPos.y)
-        paddleY += moveSpeed;
+    else if (leftPaddleY < ballPos.y)
+        leftPaddleY += moveSpeed;
     
     // Clamp position between 0 and 450
 
-    if (paddleY > 450.0f)
-        paddleY = 450.0f;
-    else if (paddleY < 0.0f)
-        paddleY = 0.0f;
+    if (leftPaddleY > 450.0f)
+        leftPaddleY = 450.0f;
+    else if (leftPaddleY < 0.0f)
+        leftPaddleY = 0.0f;
     // Update paddle position
     glm::mat4 model{1.0f};
-    model = glm::translate(model, glm::vec3(5.0f, paddleY, 0.0f));
+    model = glm::translate(model, glm::vec3(5.0f, leftPaddleY, 0.0f));
     model = glm::scale(model, glm::vec3(0.2f, 3.0f, 1.0f));
 
     m_shader.useProgram();

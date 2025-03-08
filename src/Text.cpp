@@ -1,10 +1,10 @@
 #include <glad/glad.h>
-#include "BSD.h"
+#include "Text.h"
 #include <cstddef>
 #include <vector>
 #include <iostream>
 
-BSD::BSD()
+Text::Text()
     : m_shader{"../shaderFiles/textShader.vs", "../shaderFiles/textShader.frag"}
 {
     glGenVertexArrays(1, &m_VAO);
@@ -22,13 +22,13 @@ BSD::BSD()
     loadCharacters();
 }
 
-BSD::~BSD()
+Text::~Text()
 {
     glDeleteVertexArrays(1, &m_VAO);
     glDeleteBuffers(1, &m_VBO);
 }
 
-void BSD::textLoading()
+void Text::textLoading()
 {
     FT_Library ft;
 
@@ -45,7 +45,7 @@ void BSD::textLoading()
     FT_Set_Pixel_Sizes(m_face, 0, 48);
 }
 
-void BSD::loadCharacters()
+void Text::loadCharacters()
 {
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
@@ -87,7 +87,7 @@ void BSD::loadCharacters()
     }
 }
 
-void BSD::renderText(std::string text, float x, float y)
+void Text::renderText(std::string text, float x, float y)
 {
     m_shader.useProgram();
     std::string::const_iterator c;

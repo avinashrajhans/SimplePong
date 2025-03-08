@@ -1,7 +1,8 @@
 #ifndef RIGHT_PADDLE_H
 #define RIGHT_PADDLE_H
 #include <GLFW/glfw3.h>
-#include "Paddle.h"
+// #include "Paddle.h"
+#include "Sprite.h"
 
 class RightPaddle : public Sprite
 {

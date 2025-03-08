@@ -1,9 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
 #include <GLFW/glfw3.h>
-#include "Paddle.h"
+#include "LeftPaddle.h"
 #include "RightPaddle.h"
-#include "BSD.h"
+#include "Text.h"
 #include "Ball.h"
 
 enum GameState
@@ -20,9 +20,9 @@ public:
     void render();
 
 private:
-    Paddle m_leftPaddle;
+    LeftPaddle m_leftPaddle;
     RightPaddle m_rightPaddle;
-    BSD m_text;
+    Text m_text;
     Ball m_ball;
     GameState m_state;
     GLFWwindow* m_window;

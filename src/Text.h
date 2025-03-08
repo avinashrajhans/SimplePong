@@ -1,5 +1,5 @@
-#ifndef BSD_H
-#define BSD_H
+#ifndef Text_H
+#define Text_H
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include <glm/glm.hpp>
@@ -17,11 +17,11 @@ struct Character
 };
 
 
-class BSD
+class Text
 {
 public:
-    BSD();
-    ~BSD();
+    Text();
+    ~Text();
     void renderText(std::string text, float x, float y);
     // void printShaderID()
     // {

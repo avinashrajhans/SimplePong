@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.31.0)
 
-project(App LANGUAGES CXX C)
+project(SimplePong LANGUAGES CXX C)
 
 include_directories(include)
 

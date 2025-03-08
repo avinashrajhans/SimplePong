@@ -2,7 +2,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <iostream> // Add this include
 
-extern float paddleY;
+extern float leftPaddleY;
 extern double paddlePositionY;
 
 glm::vec2 ballPos{0.0f, 275.0f};
@@ -24,8 +24,8 @@ void Ball::renderBall()
 
     // Left paddle collision (assuming paddle width is 0.2f units * scale)
     if (ballPos.x <= 5.0f + 10.0f &&     // Check if ball is at paddle's X position (5.0f) plus some offset
-        ballPos.y >= paddleY && // paddle height is 3.0f units (scaled)
-        ballPos.y <= paddleY + 150.0f)
+        ballPos.y >= leftPaddleY && // paddle height is 3.0f units (scaled)
+        ballPos.y <= leftPaddleY + 150.0f)
     {
         m_velocityX = -m_velocityX;
     }
